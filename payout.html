@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedTasks — Payout (Demo)</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <section style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <div class="welcome-section" style="flex:1;padding:0;">
+        <h2>Payment</h2>
+        <p>Complete your appointment booking with a secure payment.</p>
+      </div>
+      <div style="white-space:nowrap;">
+        <a href="index.html" style="color:var(--text-secondary);text-decoration:none;font-weight:500;">← Back to Home</a>
+      </div>
+    </section>
+
+    <div class="content-wrapper">
+      <section class="form-section">
+        <h3>Payment Details</h3>
+        <form id="payoutForm" class="appointment-form">
+          <div class="form-group">
+            <label for="payerName">Name on Card</label>
+            <input id="payerName" name="payerName" type="text" placeholder="Full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input id="cardNumber" name="cardNumber" type="text" placeholder="4242 4242 4242 4242" required>
+          </div>
+
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label for="expiry">Expiry</label>
+              <input id="expiry" name="expiry" type="text" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group" style="width:120px;">
+              <label for="cvv">CVV</label>
+              <input id="cvv" name="cvv" type="password" placeholder="123" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Amount (USD)</label>
+            <input id="amount" name="amount" type="number" min="1" step="0.01" value="50.00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="note">Note</label>
+            <textarea id="note" name="note" rows="3" placeholder="Optional note"></textarea>
+          </div>
+
+          <button class="btn-submit" type="submit">Complete Payment</button>
+        </form>
+
+        <div id="payoutResult" class="success-message hidden"></div>
+      </section>
+
+      <aside class="doctor-section" style="min-width:280px;">
+        <h3>Payment Summary</h3>
+        <div class="doctor-preview" id="paymentSummary">
+          <div class="doctor-preview-details">
+            <p><strong>Recipient:</strong> MedTasks Clinic</p>
+            <p><strong>Transaction fee:</strong> None</p>
+            <p><strong>Processing:</strong> Instant</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+
+  <script src="js/payout.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title -->
+    <title>MedTasks</title>
+    
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2>Book Your Appointment</h2>
+            <p>Quick and easy appointment scheduling with our expert healthcare professionals</p>
+        </section>
+
+        <!-- Main Content Layout -->
+        <div class="content-wrapper">
+            <!-- Left Column: Appointment Form -->
+            <section class="form-section">
+                <h3>Patient Information</h3>
+                
+                <!-- Appointment Booking Form -->
+                <form id="appointmentForm" class="appointment-form">
+                    <!-- Patient Name Field -->
+                    <div class="form-group">
+                        <label for="patientName">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="patientName" 
+                            name="patientName" 
+                            placeholder="Enter your full name"
+                            required
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <!-- Patient Email Field -->
+                    <div class="form-group">
+                        <label for="patientEmail">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="patientEmail" 
+                            name="patientEmail" 
+                            placeholder="Enter your email"
+                            required
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <!-- Patient Phone Field -->
+                    <div class="form-group">
+                        <label for="patientPhone">Phone Number *</label>
+                        <input 
+                            type="tel" 
+                            id="patientPhone" 
+                            name="patientPhone" 
+                            placeholder="Enter your phone number"
+                            required
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <!-- Contact Preference: Email/SMS -->
+                    <div class="form-group">
+                        <label for="contactMethod">Contact Method</label>
+                        <select id="contactMethod" name="contactMethod" class="specialty-filter">
+                            <option value="email">Email</option>
+                            <option value="sms">SMS (text)</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+
+                    <!-- Carrier selector for SMS (used only if contactMethod includes SMS) -->
+                    <div class="form-group" id="carrierGroup" style="display:none;">
+                        <label for="carrier">Mobile Carrier (for SMS)</label>
+                        <select id="carrier" name="carrier" class="specialty-filter">
+                            <option value="">Select carrier (for SMS)</option>
+                            <option value="att">AT&T</option>
+                            <option value="verizon">Verizon</option>
+                            <option value="tmobile">T-Mobile</option>
+                            <option value="sprint">Sprint</option>
+                            <option value="virgin">Virgin Mobile</option>
+                            <option value="metropcs">MetroPCS</option>
+                        </select>
+                    </div>
+
+                    <!-- Appointment Date Field -->
+                    <div class="form-group">
+                        <label for="appointmentDate">Preferred Date *</label>
+                        <input 
+                            type="date" 
+                            id="appointmentDate" 
+                            name="appointmentDate"
+                            required
+                        >
+                        <span class="error-message" id="dateError"></span>
+                    </div>
+
+                    <!-- Appointment Time Field -->
+                    <div class="form-group">
+                        <label for="appointmentTime">Preferred Time *</label>
+                        <input 
+                            type="time" 
+                            id="appointmentTime" 
+                            name="appointmentTime"
+                            required
+                        >
+                        <span class="error-message" id="timeError"></span>
+                    </div>
+
+                    <!-- Reason for Visit Field -->
+                    <div class="form-group">
+                        <label for="reason">Reason for Visit *</label>
+                        <textarea 
+                            id="reason" 
+                            name="reason" 
+                            placeholder="Describe your symptoms or reason for visit"
+                            rows="4"
+                            required
+                        ></textarea>
+                        <span class="error-message" id="reasonError"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">Submit Appointment</button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="success-message hidden">
+                    <h4>✓ Appointment Booked Successfully!</h4>
+                    <p>We will contact you shortly to confirm your appointment.</p>
+                </div>
+            </section>
+
+            <!-- Right Column: Doctor Selection -->
+            <section class="doctor-section">
+                <h3>Select Your Doctor</h3>
+                
+                <!-- Department/Specialty Filter -->
+                <div class="filter-group">
+                    <label for="specialtyFilter">Filter by Specialty:</label>
+                    <select id="specialtyFilter" class="specialty-filter">
+                        <option value="">All Specialties</option>
+                        <option value="General Practice">General Practice</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                    </select>
+                </div>
+
+                <!-- Doctor Cards Container -->
+                <div id="doctorsContainer" class="doctors-grid">
+                    <!-- Doctor cards will be dynamically generated here by JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Selected Doctor Preview Section -->
+        <section class="selected-doctor-section hidden" id="selectedDoctorSection">
+            <h3>Your Selected Doctor</h3>
+            <div id="selectedDoctorPreview" class="doctor-preview">
+                <!-- Selected doctor details will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MedTasks - Clinic Appointment System. All rights reserved.</p>
+        <p>Contact us: support@medtasks.com | Phone: +1-800-123-4567</p>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <!-- EmailJS SDK (client-side email sending) - you must add your public key in README instructions -->
+    <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+/* ============================================
+   MedTasks - Clinic Appointment System
+   CSS Stylesheet - Responsive Design
+   ============================================ */
+
+/* ============== ROOT & GLOBAL STYLES ============== */
+
+/* CSS Variables for consistent theming - Vercel Light Theme */
+:root {
+    --primary-color: #000000;      /* Black text */
+    --secondary-color: #666666;    /* Gray text */
+    --accent-color: #FF0000;       /* Alert red */
+    --success-color: #0070F3;      /* Vercel blue */
+    --light-bg: #FFFFFF;           /* Clean white */
+    --light-gray: #F5F5F5;         /* Subtle gray */
+    --border-color: #CCCCCC;       /* Darker borders */
+    --text-primary: #111111;       /* Dark text */
+    --text-secondary: #666666;     /* Secondary text */
+    --shadow: none;
+    --shadow-hover: none;
+}
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global body styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--light-bg);
+    font-weight: 400;
+}
+
+/* ============== HEADER STYLES ============== */
+
+/* Main header navigation bar - Transparent, minimal */
+.header {
+    background: transparent;
+    color: var(--text-primary);
+    padding: 2.5rem 0;
+    box-shadow: none;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Header container for max-width constraint */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+/* Logo styling with icon - Centered */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+/* Logo icon emoji styling */
+.logo-icon {
+    font-size: 1.75rem;
+}
+
+/* Tagline under logo */
+.tagline {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    opacity: 1;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+/* ============== MAIN CONTAINER ============== */
+
+/* Main content container with max-width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Welcome/hero section - Minimal, transparent */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.welcome-section p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ============== CONTENT WRAPPER ============== */
+
+/* Two-column layout wrapper */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Form section styles - Transparent */
+.form-section {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Doctor section styles - Transparent */
+.doctor-section {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.doctor-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* ============== FORM STYLES ============== */
+
+/* Appointment form container */
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Individual form group (label + input) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Form labels - Minimal */
+.form-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+}
+
+/* Input and textarea fields - Minimal borders */
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background-color: var(--light-bg);
+}
+
+/* Input focus state - Subtle */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    background-color: var(--light-bg);
+    box-shadow: none;
+}
+
+/* Error message styling */
+.error-message {
+    color: var(--accent-color);
+    font-size: 0.8125rem;
+    display: none;
+    font-weight: 500;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ============== BUTTON STYLES ============== */
+
+/* Submit button styling - Minimal, black */
+.btn-submit {
+    padding: 0.875rem 1.5rem;
+    background: var(--text-primary);
+    color: white;
+    border: 1px solid var(--text-primary);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+    letter-spacing: -0.01em;
+}
+
+/* Submit button hover effect */
+.btn-submit:hover {
+    transform: none;
+    background: #333333;
+    border-color: #333333;
+    box-shadow: none;
+}
+
+/* Submit button active state */
+.btn-submit:active {
+    transform: none;
+    background: #222222;
+}
+
+/* ============== SUCCESS MESSAGE ============== */
+
+/* Success message styling - Minimal */
+.success-message {
+    background: transparent;
+    border-left: none;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.success-message h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.success-message p {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* Hidden class utility */
+.hidden {
+    display: none !important;
+}
+
+/* ============== DOCTOR SELECTION ============== */
+
+/* Filter group for specialty dropdown */
+.filter-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+}
+
+/* Specialty filter dropdown - Minimal */
+.specialty-filter {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--light-bg);
+    color: var(--text-primary);
+}
+
+.specialty-filter:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    box-shadow: none;
+}
+
+/* Doctors grid layout - 1 column, responsive */
+.doctors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Scrollbar styling */
+.doctors-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.doctors-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.doctors-grid::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.doctors-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Individual doctor card - Minimal */
+.doctor-card {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Doctor card hover effect */
+.doctor-card:hover {
+    border-color: var(--text-primary);
+    background: var(--light-gray);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Doctor card selected state */
+.doctor-card.selected {
+    background: var(--light-gray);
+    border-color: var(--text-primary);
+    border-width: 2px;
+}
+
+/* Doctor avatar/icon - Minimal */
+.doctor-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    color: var(--text-primary);
+}
+
+/* Image avatar (uses actual headshot images) */
+.doctor-avatar-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Larger preview avatar */
+.doctor-avatar-img.preview-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin: 0; /* override global centering for preview */
+}
+
+/* center images horizontally in their slot */
+.doctor-avatar,
+.doctor-avatar-img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Unavailable card styling */
+.doctor-card.unavailable {
+    opacity: 0.5;
+    pointer-events: none;
+    border-color: #BDBDBD;
+}
+
+.doctor-availability.unavailable {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Doctor card info container */
+.doctor-info {
+    flex: 1;
+}
+
+/* Doctor name styling */
+.doctor-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+/* Doctor specialty styling */
+.doctor-specialty {
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+/* Doctor experience styling */
+.doctor-experience {
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 400;
+}
+
+/* Doctor rating/availability styling - Minimal badge */
+.doctor-availability {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Doctor availability times styling */
+.doctor-times {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ============== SELECTED DOCTOR SECTION ============== */
+
+/* Selected doctor preview section - Transparent */
+.selected-doctor-section {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 3rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+}
+
+.selected-doctor-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Doctor preview card styling - Minimal */
+.doctor-preview {
+    background: transparent;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start; /* align image to top/left for preview */
+}
+
+/* Large doctor avatar in preview */
+.doctor-preview .doctor-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    border-radius: 8px;
+}
+
+/* Ensure preview avatar and emoji avatar are left aligned inside preview */
+.doctor-preview .doctor-avatar,
+.doctor-preview .doctor-avatar-img {
+    margin-left: 0;
+    margin-right: 1rem;
+    align-self: flex-start;
+}
+
+/* Doctor details in preview */
+.doctor-preview-details h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.doctor-preview-details p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* ============== FOOTER ============== */
+
+/* Footer styling - Minimal */
+.footer {
+    background-color: transparent;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+    margin: 0.5rem 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+}
+
+/* ============== PAYOUT / DEMO PAYMENT STYLES ============== */
+
+.payout-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+#payoutForm .form-group label {
+    font-weight: 500;
+}
+
+#payoutResult h4 { margin-bottom: 0.25rem; }
+
+/* ============== RESPONSIVE DESIGN ============== */
+
+/* Tablet and below - Stack columns vertically */
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    .welcome-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .doctor-preview {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+}
+
+/* Mobile and below */
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .doctor-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doctor-info {
+        width: 100%;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 1.5rem;
+    }
+}
